@@ -1,23 +1,6 @@
-%h1 Listing posts
-
-%table
-  %thead
-    %tr
-      %th Caption
-      %th Image
-      %th
-      %th
-      %th
-
-  %tbody
-    - @posts.each do |post|
-      %tr
-        %td= post.caption
-        %td= post.image
-        %td= link_to 'Show', post
-        %td= link_to 'Edit', edit_post_path(post)
-        %td= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }
-
+%ul.post_list
+  = render posts
+    
 %br
 
 = link_to 'New Post', new_post_path

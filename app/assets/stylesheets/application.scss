@@ -14,3 +14,31 @@
  *= require_self
  */
 @import 'materialize';
+
+$header_height: 70px;
+
+body{
+	background-color: #fafafa;
+	padding-top: $header_height + 20;
+}
+
+.header{
+	background-color: #fff;
+	padding: 1em;
+	border-bottom: 1px solid rgba(0,0,0,.0975);
+	height: $header_height;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 10;
+
+	.header-wrapper{
+		margin: 0 auto;
+		max-width: 1100px;
+
+		.logo{
+			font-size: 1.3em;
+		}
+	}
+}
+

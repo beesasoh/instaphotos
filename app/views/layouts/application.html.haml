@@ -7,4 +7,10 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    .header
+      .header-wrapper
+        .logo
+          Instaphotos
+
+    .container   
+      = yield
