@@ -7,4 +7,5 @@ class Post < ApplicationRecord
                                size: { in: 0..2.megabytes }
 
   belongs_to :user
+  has_many :comments, as: :commentable, dependent: :destroy
 end

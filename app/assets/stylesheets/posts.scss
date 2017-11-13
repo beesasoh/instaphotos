@@ -14,6 +14,29 @@
 		}
 		.post-extras{
 			padding: 1em;
+			padding-bottom: 0;
+		}
+
+		.post-comments{
+			margin-top: .7em;
+			.comment-item{
+				.user-name{
+					display: inline-block;
+					margin-right: .5em;
+				}
+				.comment-text{
+					display: inline-block;
+				}
+			}
+
+			.comments-form{
+				margin-top: .7em;
+				border-top: 1px solid #ececec;
+
+				input[type=text]{
+					border: none;
+				}
+			}
 		}
 	}
 

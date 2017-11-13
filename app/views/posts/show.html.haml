@@ -1,9 +1,5 @@
-%p
-  %b Caption:
-  = post.caption
-%p
-  %b Image:
-  = image_tag post.image.url(:medium)
+%ul.post_list
+ = render post
 
 = link_to 'Edit', edit_post_path(post)
 \|

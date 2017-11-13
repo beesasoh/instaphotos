@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :post_owner, only: %i[edit create destroy]
 
-  expose :posts, -> { Post.order('created_at desc').includes(:user) }
+  expose :posts, -> { Post.order('created_at desc').includes(:user, :comments) }
   expose :post
 
   def index; end
@@ -64,7 +64,8 @@ class PostsController < ApplicationController
   end
 
   def post_owner
-    unless current_user == post.user
+    owner = (current_user == post.user)
+    unless owner
       redirect_to root_path,
                   alert: 'Something went wrong.'
     end

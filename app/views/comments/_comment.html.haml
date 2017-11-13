@@ -1,0 +1,5 @@
+.comment-item
+  .user-name
+    = link_to comment.user.username, profile_path(comment.user.username)
+  .comment-text
+    = comment.text
