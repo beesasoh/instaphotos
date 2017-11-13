@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
-  expose :posts, -> { Post.order('created_at desc') }
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :post_owner, only: %i[edit create destroy]
+
+  expose :posts, -> { Post.order('created_at desc').includes(:user) }
   expose :post
 
   def index; end
@@ -12,6 +15,7 @@ class PostsController < ApplicationController
 
   def create
     post = Post.new(post_params)
+    post.user_id = current_user.id
 
     respond_to do |format|
       if post.save
@@ -57,5 +61,12 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:caption, :image)
+  end
+
+  def post_owner
+    unless current_user == post.user
+      redirect_to root_path,
+                  alert: 'Something went wrong.'
+    end
   end
 end

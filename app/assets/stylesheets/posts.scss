@@ -4,9 +4,18 @@
 
 	li{
 		margin-bottom: 3em;
+		.post-image{
+			img{
+				width: 100%;
+			}
+		}
+		.user-info{
+			padding: 1em;
+		}
+		.post-extras{
+			padding: 1em;
+		}
 	}
 
-	.post-extras{
-		padding: 1em;
-	}
+	
 } 

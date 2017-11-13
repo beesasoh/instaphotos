@@ -1,5 +1,8 @@
 %li
   .card
+    .user-info
+      = link_to post.user.username, profile_path(post.user.username)
+
     .post-image
       = image_tag post.image.url(:medium)
 
