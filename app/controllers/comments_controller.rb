@@ -1,23 +1,19 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
+  expose :context, -> { context_object }
+
   def create
-    @post = context
-    @comment = @post.comments.build(comment_params)
+    @comment = context.comments.build(comment_params)
     @comment.user_id = current_user.id
 
-    respond_to do |format|
-      if @comment.save
+    if @comment.save
+      respond_to do |format|
         format.html { redirect_to root_path }
         format.js
-        format.json { render :show, status: :created, location: @comment }
-      else
-        format.html { render :new }
-        format.json do
-          render json: @comment.errors,
-                 status: :unprocessable_entity
-        end
       end
+    else
+      redirect_to root_path, alert: 'Something went wrong.'
     end
   end
 
@@ -52,11 +48,11 @@ class CommentsController < ApplicationController
 
   private
 
-  def comment_params
-    params.require(:comment).permit(:text)
-  end
+    def comment_params
+      params.require(:comment).permit(:text)
+    end
 
-  def context
-    Post.find_by(id: params[:post_id]) if params[:post_id]
-  end
+    def context_object
+      Post.find_by(id: params[:post_id]) if params[:post_id]
+    end
 end

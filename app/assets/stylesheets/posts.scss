@@ -22,7 +22,12 @@
 			.comment-item{
 				.user-name{
 					display: inline-block;
-					margin-right: .5em;
+					margin-right: .3em;
+
+					a{
+						color: rgba(0,0,0,0.8);
+						font-weight: bold;
+					}
 				}
 				.comment-text{
 					display: inline-block;

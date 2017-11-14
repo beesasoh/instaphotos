@@ -59,15 +59,15 @@ class PostsController < ApplicationController
 
   private
 
-  def post_params
-    params.require(:post).permit(:caption, :image)
-  end
-
-  def post_owner
-    owner = (current_user == post.user)
-    unless owner
-      redirect_to root_path,
-                  alert: 'Something went wrong.'
+    def post_params
+      params.require(:post).permit(:caption, :image)
     end
-  end
+
+    def post_owner
+      owner = (current_user == post.user)
+      unless owner
+        redirect_to root_path,
+                    alert: 'Something went wrong.'
+      end
+    end
 end

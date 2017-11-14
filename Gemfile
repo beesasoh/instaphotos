@@ -8,9 +8,11 @@ end
 gem 'decent_exposure', '3.0.0'
 gem 'devise'
 gem 'haml-rails', '~> 1.0'
+gem 'jquery-rails'
 gem 'materialize-sass'
 gem 'paperclip', '~> 5.0.0'
 gem 'simple_form'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
@@ -41,21 +43,23 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '~> 2.13'
-  gem 'rspec-rails', '~> 3.6'
   gem 'selenium-webdriver'
 end
 
 group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'pry-rails'
+  gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+end
 
-  gem 'better_errors'
-  gem 'binding_of_caller'
+group :test do
   gem 'factory_bot_rails', '~> 4.0'
-  gem 'pry-rails'
-  gem 'rubocop', require: false
+  gem 'rspec-rails', '~> 3.6'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
