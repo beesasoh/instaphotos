@@ -34,11 +34,69 @@ body{
 
 	.header-wrapper{
 		margin: 0 auto;
-		max-width: 1100px;
+		max-width: 1000px;
 
-		.logo{
-			font-size: 1.3em;
+		.logo-place{
+			.logo-ico{
+				display: inline-block;
+				a{
+					color: rgba(0,0,0,0.8);
+				}
+				.material-icons{
+					font-size: 30px;
+					position: relative;
+					top: -5px;
+					padding-right: .7em;
+				}
+			}
+			.logo{
+				border-left: 1px solid #ccc;
+				padding-left: .7em;
+				display: inline-block;
+				font-size: 1.3em;
+			}
 		}
+
+		.search{
+			text-align: center;
+			
+			form{
+				display: inline-block;
+				margin-top: 7px;
+
+				.search_field{
+					input{
+						border: 1px solid rgb(219,219,219);
+				    height: 25px;
+				    padding: 0 10px;
+				    background-color: rgb(250,250,250);
+				    border-radius: 2px;
+				    text-align: center;
+
+				    &:focus{
+				    	text-align: left;
+				    	border: 1px solid rgb(219,219,219);
+				    }
+					}
+				}
+			}
+		}
+
+		.user-menu{
+			position: relative;
+			top: -7px;
+			a{
+				color: rgba(0,0,0,0.65);	
+			}
+			li{
+				display: inline-block;
+				padding: 0 .7em;
+				.material-icons{
+					font-size: 25px;
+				}
+			}
+		}
+		
 	}
 }
 

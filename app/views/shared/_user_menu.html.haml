@@ -1,0 +1,8 @@
+%ul.right.user-menu
+  - if user_signed_in?
+    %li
+      = icon_link(posts_path, 'favorite_border')
+    %li
+      = icon_link(new_post_path, 'add_a_photo')
+    %li
+      = icon_link(profile_path(current_user.username), 'perm_identity')

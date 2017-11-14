@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :post_owner, only: %i[edit create destroy]
+  before_action :post_owner, only: %i[edit destroy]
 
   expose :posts, -> { Post.order('created_at desc').includes(:user, :comments) }
   expose :post
