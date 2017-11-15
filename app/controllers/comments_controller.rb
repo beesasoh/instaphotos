@@ -17,24 +17,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  def update
-    respond_to do |format|
-      if comment.update(comment_params)
-        format.html do
-          redirect_to context,
-                      notice: 'Comment was successfully updated.'
-        end
-        format.json { render :show, status: :ok, location: comment }
-      else
-        format.html { render :edit }
-        format.json do
-          render json: comment.errors,
-                 status: :unprocessable_entity
-        end
-      end
-    end
-  end
-
   def destroy
     comment.destroy
     respond_to do |format|

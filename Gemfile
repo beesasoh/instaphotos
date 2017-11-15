@@ -5,14 +5,15 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'acts_as_votable', '~> 0.11.1'
 gem 'decent_exposure', '3.0.0'
 gem 'devise'
 gem 'haml-rails', '~> 1.0'
 gem 'jquery-rails'
+gem 'kaminari'
 gem 'materialize-sass'
 gem 'paperclip', '~> 5.0.0'
 gem 'simple_form'
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
@@ -60,6 +61,7 @@ end
 group :test do
   gem 'factory_bot_rails', '~> 4.0'
   gem 'rspec-rails', '~> 3.6'
+  gem 'shoulda'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

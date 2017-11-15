@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :post_owner, only: %i[edit destroy]
+  before_action :post_owner, only: %i[edit update destroy]
+
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_post
 
   expose :posts, -> { Post.order('created_at desc').includes(:user, :comments) }
   expose :post
@@ -69,5 +71,10 @@ class PostsController < ApplicationController
         redirect_to root_path,
                     alert: 'Something went wrong.'
       end
+    end
+
+    def invalid_post
+      logger.error "Attempt to access invalid post #{params[:id]}"
+      redirect_to root_url, alert: 'Invalid post'
     end
 end
